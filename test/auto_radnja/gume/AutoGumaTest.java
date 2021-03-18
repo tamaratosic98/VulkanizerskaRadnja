@@ -61,9 +61,12 @@ class AutoGumaTest {
 		assertEquals(precnik,ag.getPrecnik());
 	}
 	@Test
-	void testSetPrecnikVanOpsega() {
-		assertThrows(java.lang.RuntimeException.class,()->ag.setPrecnik(23));
+	void testSetPrecnikVanOpsegaManji() {
 		assertThrows(java.lang.RuntimeException.class,()->ag.setPrecnik(12));
+	}
+	@Test
+	void testSetPrecnikVanOpsegaVeci() {
+		assertThrows(java.lang.RuntimeException.class,()->ag.setPrecnik(23));
 	}
 
 
@@ -76,9 +79,12 @@ class AutoGumaTest {
 		assertEquals(sirina,ag.getSirina());
 	}
 	@Test
+	void testSetSirinaVanOpsegaManji() {
+		assertThrows(java.lang.RuntimeException.class,()->ag.setSirina(134));
+	}
+	@Test
 	void testSetSirinaVanOpsega() {
 		assertThrows(java.lang.RuntimeException.class,()->ag.setSirina(356));
-		assertThrows(java.lang.RuntimeException.class,()->ag.setSirina(134));
 	}
 
 	@ParameterizedTest
@@ -90,9 +96,12 @@ class AutoGumaTest {
 		assertEquals(visina,ag.getVisina());
 	}
 	@Test
-	void testSetVisinaVanOpsega() {
-		assertThrows(java.lang.RuntimeException.class,()->ag.setVisina(96));
+	void testSetVisinaVanOpsegaManji() {
 		assertThrows(java.lang.RuntimeException.class,()->ag.setVisina(24));
+	}
+	@Test
+	void testSetVisinaVanOpsegaVeci() {
+		assertThrows(java.lang.RuntimeException.class,()->ag.setVisina(96));
 	}
 		
 	@Test

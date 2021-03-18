@@ -4,8 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import auto_radnja.gume.AutoGuma;
@@ -13,17 +11,6 @@ import auto_radnja.gume.AutoGuma;
 
 public abstract class RadnjaTest {
 	public Radnja radnja;
-	/*protected AutoGuma ag;
-	@BeforeEach
-	void setUp() throws Exception {
-		ag=new AutoGuma();
-	}
-
-	@AfterEach
-	void tearDown() throws Exception {
-		
-	}*/
-
 	@Test
 	void testDodajGumu() {
 		AutoGuma ag=new AutoGuma();
@@ -82,6 +69,56 @@ public abstract class RadnjaTest {
 		List<AutoGuma> rezultat=radnja.pronadjiGumu("MarkaModel");
 		assertEquals(1, rezultat.size());
 		assertTrue(rezultat.contains(ag));
+	}
+	@Test
+	void testPronadjiGumuNePostoji() {
+		AutoGuma ag=new AutoGuma();
+		ag.setMarkaModel("1111");
+		ag.setPrecnik(14);
+		ag.setVisina(26);
+		ag.setSirina(136);
+		AutoGuma ag2=new AutoGuma();
+		ag2.setMarkaModel("2222");
+		ag2.setPrecnik(15);
+		ag2.setVisina(27);
+		ag2.setSirina(137);
+		AutoGuma ag3=new AutoGuma();
+		ag3.setMarkaModel("3333");
+		ag3.setPrecnik(16);
+		ag3.setVisina(28);
+		ag3.setSirina(138);
+		radnja.dodajGumu(ag);
+		radnja.dodajGumu(ag2);
+		radnja.dodajGumu(ag3);
+		List<AutoGuma> rezultat=radnja.pronadjiGumu("4444");
+		assertEquals(0, rezultat.size());
+
+	}
+	@Test
+	void testPronadjiGumuNePostojiIstaMarkaModel() {
+		AutoGuma ag=new AutoGuma();
+		ag.setMarkaModel("1111");
+		ag.setPrecnik(14);
+		ag.setVisina(26);
+		ag.setSirina(136);
+		AutoGuma ag2=new AutoGuma();
+		ag2.setMarkaModel("1111");
+		ag2.setPrecnik(15);
+		ag2.setVisina(27);
+		ag2.setSirina(137);
+		AutoGuma ag3=new AutoGuma();
+		ag3.setMarkaModel("3333");
+		ag3.setPrecnik(16);
+		ag3.setVisina(28);
+		ag3.setSirina(138);
+		radnja.dodajGumu(ag);
+		radnja.dodajGumu(ag2);
+		radnja.dodajGumu(ag3);
+		List<AutoGuma> rezultat=radnja.pronadjiGumu("1111");
+		assertEquals(2, rezultat.size());
+		assertTrue(rezultat.contains(ag));
+		assertTrue(rezultat.contains(ag2));
+
 	}
 	@Test
 	void testPronadjiGumuMarkaNull() {
