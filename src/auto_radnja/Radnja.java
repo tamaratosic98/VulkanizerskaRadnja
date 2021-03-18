@@ -27,4 +27,5 @@ public interface Radnja {
 	 * 
 	 */
     LinkedList<AutoGuma> pronadjiGumu(String markaModel);
+ 
 }
