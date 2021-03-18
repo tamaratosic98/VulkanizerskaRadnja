@@ -4,7 +4,7 @@ import auto_radnja.gume.AutoGuma;
 /**
  * Intefejs koji predstavlja Radnju.
  * 
- * @author tamara
+ * @author Tamara Tosic
  * @version 2.0
  */
 public interface Radnja {
